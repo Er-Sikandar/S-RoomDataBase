@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="10dp"
+    android:padding="5dp"
+    android:background="@color/gray"
+    android:orientation="vertical">
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1."
+        android:padding="5dp"
+        android:id="@+id/tv_id"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="name"
+        android:padding="5dp"
+        android:id="@+id/tv_name"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="1234567890"
+        android:padding="5dp"
+        android:id="@+id/tv_phone"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="sikandar@gmail.com"
+        android:padding="5dp"
+        android:id="@+id/tv_email"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Noida Utter Pradesh"
+        android:padding="5dp"
+        android:id="@+id/tv_address"/>
+
+</LinearLayout>
+</layout>
