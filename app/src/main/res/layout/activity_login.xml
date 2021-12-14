@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="10dp"
+    tools:context=".LoginActivity">
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20sp"
+        android:layout_marginTop="30sp"
+        android:id="@+id/email"
+        android:layout_marginRight="20sp"
+      app:layout_constraintTop_toTopOf="parent"
+        android:background="@drawable/edittext_background"
+        android:hint="Email Id"
+        android:padding="20sp"
+        android:singleLine="true" />
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="30dp"
+        android:id="@+id/btn_login"
+        android:background="@color/app_Color"
+        android:text="Login"
+        app:layout_constraintTop_toBottomOf="@id/email"
+        android:textColor="#fff"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:textSize="16sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sign Up"
+        android:id="@+id/tv_signup"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@+id/btn_login"
+        app:layout_constraintLeft_toLeftOf="parent"
+        android:textSize="20sp"
+        android:textColor="@color/app_Color"
+        android:textStyle="bold"
+        android:padding="20dp"
+        app:layout_constraintRight_toRightOf="parent"/>
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        app:cardCornerRadius="10dp"
+        android:elevation="10dp"
+        android:visibility="gone"
+        android:id="@+id/cardView"
+        android:layout_marginTop="30dp"
+        app:layout_constraintTop_toBottomOf="@id/tv_signup"
+        app:cardBackgroundColor="@color/app_Color">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="10dp">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Details"
+                android:id="@+id/tv_title"
+                android:textSize="20sp"
+                android:layout_gravity="center_horizontal"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Details"
+                android:id="@+id/tv_name"
+                android:layout_marginTop="10dp"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Details"
+                android:id="@+id/tv_phone"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Details"
+                android:id="@+id/tv_email"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:padding="5dp"/>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Details"
+                android:id="@+id/tv_address"
+                android:textSize="16sp"
+                android:textColor="@color/white"
+                android:padding="5dp"/>
+
+
+        </LinearLayout>
+
+
+    </androidx.cardview.widget.CardView>
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -6,13 +6,13 @@ import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 
-import com.example.roomdbapp.DB.Dao.UserDao;
+import com.example.roomdbapp.DB.Dao.MainDao;
 import com.example.roomdbapp.DB.Entity.UserEntity;
 
 @Database(entities = {UserEntity.class}, version = 1)
 
 public abstract class DataBaseClass extends RoomDatabase {
-    public abstract UserDao getUserDao();
+    public abstract MainDao getUserDao();
 
     private static DataBaseClass instance;
 

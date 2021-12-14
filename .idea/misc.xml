@@ -4,7 +4,10 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/RoomDbApp/app/src/main/res/drawable/edittext_background.xml" value="0.1" />
-        <entry key="..\:/RoomDbApp/app/src/main/res/layout/activity_main.xml" value="0.33" />
+        <entry key="..\:/RoomDbApp/app/src/main/res/layout-w1240dp/activity_login.xml" value="0.26666666666666666" />
+        <entry key="..\:/RoomDbApp/app/src/main/res/layout-w936dp/activity_login.xml" value="0.5" />
+        <entry key="..\:/RoomDbApp/app/src/main/res/layout/activity_login.xml" value="0.2529411764705882" />
+        <entry key="..\:/RoomDbApp/app/src/main/res/layout/activity_main.xml" value="0.26791277258566976" />
         <entry key="..\:/RoomDbApp/app/src/main/res/layout/activity_user_list.xml" value="0.20416666666666666" />
         <entry key="..\:/RoomDbApp/app/src/main/res/layout/rec_user_list.xml" value="0.1268939393939394" />
       </map>

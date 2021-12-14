@@ -37,7 +37,9 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.tvId.setText("S.No. "+dataSet.get(position).getKey());
 holder.binding.tvName.setText(dataSet.get(position).getName());
-
+holder.binding.tvPhone.setText(dataSet.get(position).getPhone());
+holder.binding.tvEmail.setText(dataSet.get(position).getEmail());
+holder.binding.tvAddress.setText(dataSet.get(position).getAddress());
 
     }
 
