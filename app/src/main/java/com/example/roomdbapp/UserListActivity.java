@@ -6,22 +6,33 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.roomdbapp.DB.DataBaseClass;
+import com.example.roomdbapp.DB.Entity.UserEntity;
 import com.example.roomdbapp.adapter.UserListAdapter;
 import com.example.roomdbapp.databinding.ActivityUserListBinding;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserListActivity extends AppCompatActivity {
 private ActivityUserListBinding binding;
 private UserListAdapter adapter;
+private List<UserEntity> dataList=new ArrayList<>();
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_user_list);
-
-   adapter=new UserListAdapter(UserListActivity.this, DataBaseClass.getDataBase(UserListActivity.this).getUserDao().getAllData());
-   binding.recUserList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL,false));
-    binding.recUserList.setAdapter(adapter);
+        dataList=DataBaseClass.getDataBase(UserListActivity.this).getUserDao().getAllData();
+        if (dataList!=null) {
+            adapter = new UserListAdapter(UserListActivity.this, dataList);
+            binding.recUserList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+            binding.recUserList.setAdapter(adapter);
+        }else {
+            Toast.makeText(this, "No Data Found!", Toast.LENGTH_SHORT).show();
+        }
     }
 }

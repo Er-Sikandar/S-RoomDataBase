@@ -30,7 +30,7 @@ private UserEntity userEntity;
             }else {
                 userEntity=new UserEntity();
                 userEntity=DataBaseClass.getDataBase(LoginActivity.this).getUserDao().getUserProfile(binding.email.getText().toString().trim());
-                if (userEntity.getName()!=null){
+                if (userEntity!=null){
                     binding.cardView.setVisibility(View.VISIBLE);
                     binding.tvName.setText("Name: "+userEntity.getName());
                     binding.tvPhone.setText("Mobile: "+userEntity.getPhone());
