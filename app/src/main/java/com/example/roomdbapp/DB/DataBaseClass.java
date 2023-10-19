@@ -39,7 +39,7 @@ public abstract class DataBaseClass extends RoomDatabase {
         }
     };
 
-    public static void destroyInstance() {
+    public void destroyInstance() {
         if (instance != null) {
             if (instance.isOpen()) {
                 instance.close();

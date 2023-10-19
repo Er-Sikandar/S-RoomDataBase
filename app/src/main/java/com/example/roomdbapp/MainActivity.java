@@ -41,6 +41,7 @@ public class MainActivity extends AppCompatActivity {
                     userEntity.setAddress(binding.address.getText().toString().trim());
                     userEntity.setUserType("user");
                     dataBaseClass.getUserDao().insertUserData(userEntity);
+                    dataBaseClass.destroyInstance();
                     Toast.makeText(this, "Your Data Insert Successful.", Toast.LENGTH_SHORT).show();
                     finish();
                 }

@@ -19,6 +19,7 @@ import java.util.List;
 public class UserListActivity extends AppCompatActivity {
 private ActivityUserListBinding binding;
 private UserListAdapter adapter;
+private DataBaseClass dataBaseClass;
 private List<UserEntity> dataList=new ArrayList<>();
 
 
@@ -26,7 +27,9 @@ private List<UserEntity> dataList=new ArrayList<>();
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_user_list);
-        dataList=DataBaseClass.getDataBase(UserListActivity.this).getUserDao().getAllData();
+        dataBaseClass=DataBaseClass.getDataBase(UserListActivity.this);
+        dataList=dataBaseClass.getUserDao().getAllData();
+        dataBaseClass.destroyInstance();
         if (dataList!=null) {
             adapter = new UserListAdapter(UserListActivity.this, dataList);
             binding.recUserList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));

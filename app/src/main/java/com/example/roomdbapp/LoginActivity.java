@@ -15,12 +15,13 @@ import com.example.roomdbapp.databinding.ActivityLoginBinding;
 public class LoginActivity extends AppCompatActivity {
 private ActivityLoginBinding binding;
 private UserEntity userEntity;
-
+private DataBaseClass dataBaseClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_login);
+        dataBaseClass=DataBaseClass.getDataBase(LoginActivity.this);
         binding.tvSignup.setOnClickListener(view -> {
             startActivity(new Intent(LoginActivity.this,MainActivity.class));
         });
@@ -29,7 +30,7 @@ private UserEntity userEntity;
                 Toast.makeText(this, "Enter email address", Toast.LENGTH_SHORT).show();
             }else {
                 userEntity=new UserEntity();
-                userEntity=DataBaseClass.getDataBase(LoginActivity.this).getUserDao().getUserProfile(binding.email.getText().toString().trim());
+                userEntity=dataBaseClass.getUserDao().getUserProfile(binding.email.getText().toString().trim());
                 if (userEntity!=null){
                     binding.cardView.setVisibility(View.VISIBLE);
                     binding.tvName.setText("Name: "+userEntity.getName());
@@ -37,7 +38,7 @@ private UserEntity userEntity;
                     binding.tvEmail.setText("Email: "+userEntity.getEmail());
                     binding.tvAddress.setText("Address: "+userEntity.getAddress());
                     Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show();
-
+                    dataBaseClass.destroyInstance();
 
                 }else {
                     binding.cardView.setVisibility(View.GONE);
