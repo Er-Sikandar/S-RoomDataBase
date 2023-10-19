@@ -4,13 +4,16 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.databinding.DataBindingUtil;
 import androidx.databinding.ViewDataBinding;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.roomdbapp.DB.DataBaseClass;
 import com.example.roomdbapp.DB.Entity.UserEntity;
+import com.example.roomdbapp.MainActivity;
 import com.example.roomdbapp.R;
 import com.example.roomdbapp.databinding.RecUserListBinding;
 
@@ -53,6 +56,12 @@ holder.binding.tvAddress.setText(dataSet.get(position).getAddress());
         public ViewHolder(@NonNull RecUserListBinding binding) {
             super(binding.getRoot());
             this.binding=binding;
+            itemView.setOnClickListener(v -> {
+                DataBaseClass.getDataBase(context).getUserDao().delete(dataSet.get(getAdapterPosition()));
+                Toast.makeText(context, "Record Deleted", Toast.LENGTH_SHORT).show();
+                dataSet.remove(getAdapterPosition());
+                notifyItemRemoved(getAdapterPosition());
+            });
         }
     }
 }

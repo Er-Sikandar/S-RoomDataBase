@@ -30,6 +30,7 @@
         android:background="@drawable/edittext_background"
         android:hint="phone no"
         android:padding="12dp"
+        android:maxLength="10"
         android:inputType="phone"
         app:layout_constraintTop_toBottomOf="@id/name"
         android:singleLine="true" />

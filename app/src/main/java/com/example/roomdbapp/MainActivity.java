@@ -13,14 +13,13 @@ import com.example.roomdbapp.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
  private ActivityMainBinding binding;
- 
+ private DataBaseClass dataBaseClass;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
        binding= DataBindingUtil.setContentView(this,R.layout.activity_main);
-
-
+        dataBaseClass=DataBaseClass.getDataBase(MainActivity.this);
        binding.btnSave.setOnClickListener(view -> {
            if (binding.name.getText().toString().trim().isEmpty()){
                Toast.makeText(this, "Please enter value.", Toast.LENGTH_SHORT).show();
@@ -31,14 +30,20 @@ public class MainActivity extends AppCompatActivity {
            }else if (binding.address.getText().toString().trim().isEmpty()) {
                Toast.makeText(this, "Please enter value.", Toast.LENGTH_SHORT).show();
            }else {
-               UserEntity userEntity=new UserEntity();
-               userEntity.setName(binding.name.getText().toString().trim());
-               userEntity.setPhone(binding.phone.getText().toString().trim());
-               userEntity.setEmail(binding.email.getText().toString().trim());
-               userEntity.setAddress(binding.address.getText().toString().trim());
-               DataBaseClass.getDataBase(MainActivity.this).getUserDao().insertUserData(userEntity);
-               Toast.makeText(this, "Your Data Insert Successful.", Toast.LENGTH_SHORT).show();
-             finish();
+                if (dataBaseClass.getUserDao().getIsExist(binding.email.getText().toString().trim())){
+                    Toast.makeText(this, "Already Exist Record.", Toast.LENGTH_SHORT).show();
+                    binding.email.setText("");
+                }else {
+                    UserEntity userEntity=new UserEntity();
+                    userEntity.setName(binding.name.getText().toString().trim());
+                    userEntity.setPhone(binding.phone.getText().toString().trim());
+                    userEntity.setEmail(binding.email.getText().toString().trim());
+                    userEntity.setAddress(binding.address.getText().toString().trim());
+                    userEntity.setUserType("user");
+                    dataBaseClass.getUserDao().insertUserData(userEntity);
+                    Toast.makeText(this, "Your Data Insert Successful.", Toast.LENGTH_SHORT).show();
+                    finish();
+                }
            }
        });
        binding.btnGetData.setOnClickListener(view -> {

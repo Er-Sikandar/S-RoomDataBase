@@ -22,6 +22,17 @@ public class UserEntity {
     @ColumnInfo(name = "address")
     private String address;
 
+    @ColumnInfo(name = "user_type")
+    private String userType;
+
+    public String getUserType() {
+        return userType;
+    }
+
+    public void setUserType(String userType) {
+        this.userType = userType;
+    }
+
     public int getKey() {
         return key;
     }
