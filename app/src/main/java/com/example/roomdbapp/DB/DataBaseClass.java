@@ -3,16 +3,22 @@ package com.example.roomdbapp.DB;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
+import androidx.room.AutoMigration;
 import androidx.room.Database;
 import androidx.room.Room;
 import androidx.room.RoomDatabase;
 import androidx.room.migration.Migration;
 import androidx.sqlite.db.SupportSQLiteDatabase;
 
+
 import com.example.roomdbapp.DB.Dao.MainDao;
 import com.example.roomdbapp.DB.Entity.UserEntity;
 
-@Database(entities = {UserEntity.class}, version = 2)
+@Database(entities = {UserEntity.class}, version = 2,exportSchema = true,
+        autoMigrations = {
+                @AutoMigration(from = 1, to = 2)
+        }
+)
 
 public abstract class DataBaseClass extends RoomDatabase {
     public abstract MainDao getUserDao();
@@ -24,8 +30,8 @@ public abstract class DataBaseClass extends RoomDatabase {
             synchronized (DataBaseClass.class) {
                 instance = Room.databaseBuilder(context, DataBaseClass.class, "DATABASE")
                         .allowMainThreadQueries()
-                        .addMigrations(MIGRATION_1_2)
-                        // .fallbackToDestructiveMigration()
+                        //.addMigrations(MIGRATION_1_2)  //manual migration
+                        //.fallbackToDestructiveMigration()
                         .build();
             }
         }

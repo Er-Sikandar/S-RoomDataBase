@@ -25,6 +25,9 @@ public class UserEntity {
     @ColumnInfo(name = "user_type")
     private String userType;
 
+    @ColumnInfo(name = "admin")
+    private String admin;
+
     public String getUserType() {
         return userType;
     }
@@ -71,5 +74,13 @@ public class UserEntity {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(String admin) {
+        this.admin = admin;
     }
 }
