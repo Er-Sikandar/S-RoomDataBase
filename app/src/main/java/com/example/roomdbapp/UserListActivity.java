@@ -28,12 +28,16 @@ private List<UserEntity> dataList=new ArrayList<>();
         super.onCreate(savedInstanceState);
         binding= DataBindingUtil.setContentView(this,R.layout.activity_user_list);
         dataBaseClass=DataBaseClass.getDataBase(UserListActivity.this);
-        dataList=dataBaseClass.getUserDao().getAllData();
-        dataBaseClass.destroyInstance();
-        if (dataList!=null) {
-            adapter = new UserListAdapter(UserListActivity.this, dataList);
-            binding.recUserList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
-            binding.recUserList.setAdapter(adapter);
+        if (dataBaseClass!=null) {
+            dataList = dataBaseClass.getUserDao().getAllData();
+            dataBaseClass.destroyInstance();
+            if (dataList != null) {
+                adapter = new UserListAdapter(UserListActivity.this, dataList);
+                binding.recUserList.setLayoutManager(new LinearLayoutManager(this, RecyclerView.VERTICAL, false));
+                binding.recUserList.setAdapter(adapter);
+            } else {
+                Toast.makeText(this, "No Data Found!", Toast.LENGTH_SHORT).show();
+            }
         }else {
             Toast.makeText(this, "No Data Found!", Toast.LENGTH_SHORT).show();
         }

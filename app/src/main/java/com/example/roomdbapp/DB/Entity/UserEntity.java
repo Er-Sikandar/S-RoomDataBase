@@ -16,6 +16,9 @@ public class UserEntity {
     @ColumnInfo(name = "phone")
     private String phone;
 
+    @ColumnInfo(name = "gender")
+    private String gender;
+
     @ColumnInfo(name = "email")
     private String email;
 
@@ -82,5 +85,13 @@ public class UserEntity {
 
     public void setAdmin(String admin) {
         this.admin = admin;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
     }
 }

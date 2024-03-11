@@ -1,6 +1,8 @@
 package com.example.roomdbapp.adapter;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -36,10 +38,15 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
         return new ViewHolder(binding);
     }
 
+    @SuppressLint("SetTextI18n")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.binding.tvId.setText("S.No. "+dataSet.get(position).getKey());
-holder.binding.tvName.setText(dataSet.get(position).getName());
+        if (!TextUtils.isEmpty(dataSet.get(position).getGender())) {
+            holder.binding.tvName.setText(dataSet.get(position).getName() + "(" + dataSet.get(position).getGender() + ")");
+        }else {
+            holder.binding.tvName.setText(dataSet.get(position).getName());
+        }
 holder.binding.tvPhone.setText(dataSet.get(position).getPhone());
 holder.binding.tvEmail.setText(dataSet.get(position).getEmail());
 holder.binding.tvAddress.setText(dataSet.get(position).getAddress());

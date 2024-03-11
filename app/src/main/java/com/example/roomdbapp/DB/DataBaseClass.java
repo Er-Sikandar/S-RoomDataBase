@@ -1,6 +1,7 @@
 package com.example.roomdbapp.DB;
 
 import android.content.Context;
+import android.os.Environment;
 
 import androidx.annotation.NonNull;
 import androidx.room.AutoMigration;
@@ -14,10 +15,10 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.roomdbapp.DB.Dao.MainDao;
 import com.example.roomdbapp.DB.Entity.UserEntity;
 
-@Database(entities = {UserEntity.class}, version = 2,exportSchema = true,
-        autoMigrations = {
-                @AutoMigration(from = 1, to = 2)
-        }
+@Database(entities = {UserEntity.class}, version = 1,exportSchema = false
+       /* autoMigrations = {
+                @AutoMigration(from = 2, to = 3)
+        }*/
 )
 
 public abstract class DataBaseClass extends RoomDatabase {
@@ -28,11 +29,17 @@ public abstract class DataBaseClass extends RoomDatabase {
     public static DataBaseClass getDataBase(final Context context) {
         if (instance == null) {
             synchronized (DataBaseClass.class) {
-                instance = Room.databaseBuilder(context, DataBaseClass.class, "DATABASE")
+                Room.databaseBuilder(context, DataBaseClass.class, context.getExternalFilesDir(Environment.DIRECTORY_PICTURES) + "RoomDbApp")
                         .allowMainThreadQueries()
-                        //.addMigrations(MIGRATION_1_2)  //manual migration
-                        //.fallbackToDestructiveMigration()
                         .build();
+
+
+               /* instance = Room.databaseBuilder(context, DataBaseClass.class, "DATABASE")
+                         .allowMainThreadQueries()
+                       // .addMigrations(MIGRATION_1_2)  //manual migration
+                       // .addMigrations(MIGRATION_2_3)  //manual migration
+                        //.fallbackToDestructiveMigration() //when need to refresh record
+                        .build();*/
             }
         }
         return instance;
@@ -42,6 +49,12 @@ public abstract class DataBaseClass extends RoomDatabase {
         @Override
         public void migrate(@NonNull final SupportSQLiteDatabase database) {
             database.execSQL("alter table user add column user_type TEXT default ''");
+        }
+    };
+    static Migration MIGRATION_2_3= new Migration(2, 3) {
+        @Override
+        public void migrate(@NonNull final SupportSQLiteDatabase database) {
+            database.execSQL("alter table user add column gender TEXT default ''");
         }
     };
 
