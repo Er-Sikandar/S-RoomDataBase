@@ -29,7 +29,7 @@ public abstract class DataBaseClass extends RoomDatabase {
     public static DataBaseClass getDataBase(final Context context) {
         if (instance == null) {
             synchronized (DataBaseClass.class) {
-                Room.databaseBuilder(context, DataBaseClass.class, context.getExternalFilesDir(Environment.DIRECTORY_PICTURES) + "RoomDbApp")
+                instance=Room.databaseBuilder(context, DataBaseClass.class, context.getExternalFilesDir(Environment.DIRECTORY_PICTURES) + "RoomDbApp")
                         .allowMainThreadQueries()
                         .build();
 

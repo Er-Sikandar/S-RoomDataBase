@@ -30,7 +30,6 @@ public class MainActivity extends AppCompatActivity {
            }else if (binding.address.getText().toString().trim().isEmpty()) {
                Toast.makeText(this, "Please enter value.", Toast.LENGTH_SHORT).show();
            }else {
-               if (dataBaseClass!=null) {
                    if (dataBaseClass.getUserDao().getIsExist(binding.email.getText().toString().trim())) {
                        Toast.makeText(this, "Already Exist Record.", Toast.LENGTH_SHORT).show();
                        binding.email.setText("");
@@ -47,10 +46,6 @@ public class MainActivity extends AppCompatActivity {
                        Toast.makeText(this, "Your Data Insert Successful.", Toast.LENGTH_SHORT).show();
                        finish();
                    }
-               }else {
-                   Toast.makeText(this, "Something Wrong.", Toast.LENGTH_SHORT).show();
-
-               }
            }
        });
        binding.btnGetData.setOnClickListener(view -> {

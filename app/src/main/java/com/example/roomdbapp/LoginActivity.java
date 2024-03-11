@@ -30,7 +30,6 @@ private DataBaseClass dataBaseClass;
                 Toast.makeText(this, "Enter email address", Toast.LENGTH_SHORT).show();
             }else {
                 userEntity=new UserEntity();
-                if (dataBaseClass!=null) {
                     userEntity = dataBaseClass.getUserDao().getUserProfile(binding.email.getText().toString().trim());
                     if (userEntity != null) {
                         binding.cardView.setVisibility(View.VISIBLE);
@@ -46,10 +45,6 @@ private DataBaseClass dataBaseClass;
                         binding.cardView.setVisibility(View.GONE);
                         Toast.makeText(this, "Please enter valid email address ", Toast.LENGTH_SHORT).show();
                     }
-                }else {
-                    binding.cardView.setVisibility(View.GONE);
-                    Toast.makeText(this, "Please enter valid email address ", Toast.LENGTH_SHORT).show();
-                }
 
             }
         });
