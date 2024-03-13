@@ -28,6 +28,8 @@ private DataBaseClass dataBaseClass;
         binding.btnLogin.setOnClickListener(view -> {
             if (binding.email.getText().toString().trim().isEmpty()){
                 Toast.makeText(this, "Enter email address", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Enter email address", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Enter email address", Toast.LENGTH_SHORT).show();
             }else {
                 userEntity=new UserEntity();
                     userEntity = dataBaseClass.getUserDao().getUserProfile(binding.email.getText().toString().trim());
