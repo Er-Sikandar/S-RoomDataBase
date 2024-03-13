@@ -23,6 +23,7 @@ public interface MainDao {
     @Query("select * from user")
     List<UserEntity> getAllData();
 
+
     @Query("select `key`,name,phone,gender,email,address from user where email= :emailId limit 1")
     UserEntity getUserProfile(String emailId);
 
