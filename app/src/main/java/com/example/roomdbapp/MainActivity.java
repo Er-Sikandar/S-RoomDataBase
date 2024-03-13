@@ -23,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
        binding.btnSave.setOnClickListener(view -> {
            if (binding.name.getText().toString().trim().isEmpty()){
                Toast.makeText(this, "Please enter value.", Toast.LENGTH_SHORT).show();
+               Toast.makeText(this, "Please enter value.", Toast.LENGTH_SHORT).show();
+               Toast.makeText(this, "Please enter value.", Toast.LENGTH_SHORT).show();
            }else if (binding.phone.getText().toString().trim().isEmpty()) {
                Toast.makeText(this, "Please enter value.", Toast.LENGTH_SHORT).show();
            }else if ( binding.email.getText().toString().trim().isEmpty()) {
