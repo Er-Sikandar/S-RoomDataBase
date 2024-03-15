@@ -15,7 +15,8 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 import com.example.roomdbapp.DB.Dao.MainDao;
 import com.example.roomdbapp.DB.Entity.UserEntity;
 
-@Database(entities = {UserEntity.class}, version = 1,exportSchema = false
+@Database(entities = {UserEntity.class},
+        version = 1
        /* autoMigrations = {
                 @AutoMigration(from = 2, to = 3)
         }*/
