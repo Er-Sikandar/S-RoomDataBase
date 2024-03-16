@@ -40,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
                        userEntity.setGender("Male");
                        userEntity.setEmail(binding.email.getText().toString().trim());
                        userEntity.setAddress(binding.address.getText().toString().trim());
+                       userEntity.setPinCode("201301");
                        userEntity.setUserType("user");
                        dataBaseClass.getUserDao().insertUserData(userEntity);
                        dataBaseClass.destroyInstance();

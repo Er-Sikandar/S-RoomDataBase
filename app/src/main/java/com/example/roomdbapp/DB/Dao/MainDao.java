@@ -24,7 +24,7 @@ public interface MainDao {
     List<UserEntity> getAllData();
 
 
-    @Query("select `key`,name,phone,gender,email,address from user where email= :emailId limit 1")
+    @Query("select `key`,name,phone,gender,email,address,pinCode from user where email= :emailId limit 1")
     UserEntity getUserProfile(String emailId);
 
     @Delete

@@ -49,7 +49,7 @@ public class UserListAdapter extends RecyclerView.Adapter<UserListAdapter.ViewHo
         }
 holder.binding.tvPhone.setText(dataSet.get(position).getPhone());
 holder.binding.tvEmail.setText(dataSet.get(position).getEmail());
-holder.binding.tvAddress.setText(dataSet.get(position).getAddress());
+holder.binding.tvAddress.setText(dataSet.get(position).getAddress()+ "(" + dataSet.get(position).getPinCode() + ")");
 
     }
 

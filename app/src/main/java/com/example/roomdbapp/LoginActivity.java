@@ -36,7 +36,7 @@ private DataBaseClass dataBaseClass;
                         binding.tvName.setText("Name: " + userEntity.getName() + "(" + userEntity.getGender() + ")");
                         binding.tvPhone.setText("Mobile: " + userEntity.getPhone());
                         binding.tvEmail.setText("Email: " + userEntity.getEmail());
-                        binding.tvAddress.setText("Address: " + userEntity.getAddress());
+                        binding.tvAddress.setText("Address: " + userEntity.getAddress()+ "(" + userEntity.getPinCode() + ")");
                         Toast.makeText(this, "Login Successfully", Toast.LENGTH_SHORT).show();
                         dataBaseClass.destroyInstance();
                         binding.email.setText("");

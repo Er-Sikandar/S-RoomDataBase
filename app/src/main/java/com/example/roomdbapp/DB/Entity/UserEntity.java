@@ -25,6 +25,9 @@ public class UserEntity {
     @ColumnInfo(name = "address")
     private String address;
 
+    @ColumnInfo(name = "pinCode")
+    private String pinCode;
+
     @ColumnInfo(name = "user_type")
     private String userType;
 
@@ -93,5 +96,13 @@ public class UserEntity {
 
     public void setGender(String gender) {
         this.gender = gender;
+    }
+
+    public String getPinCode() {
+        return pinCode;
+    }
+
+    public void setPinCode(String pinCode) {
+        this.pinCode = pinCode;
     }
 }
